@@ -2,6 +2,7 @@ import type Quill from 'quill';
 
 export class Module {
   constructor(public quill: Quill) {
+    console.log('Module used');
     const container = this.quill.addContainer('module-container');
     container.classList.add('bg-green-400');
   }

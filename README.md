@@ -1,3 +1,3 @@
-# module-template
+# Module-template
 
 An quill module template

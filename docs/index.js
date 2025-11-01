@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const Quill = window.Quill;
 const { Module } = window.QuillModule;
 
@@ -30,26 +29,24 @@ const quill1 = new Quill('#editor1', {
   },
 });
 
-const quill = [quill1];
-window.quill = quill;
+const quills = [quill1];
+window.quills = quills;
 
-const output = [output1];
-
-for (const [i, btn] of [btn1].entries()) {
+for (const [i, quill] of quills.entries()) {
+  const btn = document.getElementById(`btn${i + 1}`);
   btn.addEventListener('click', () => {
-    const contents = quill[i].getContents();
+    const contents = quill.getContents();
     console.log(contents);
-    output[i].innerHTML = '';
+    const output = document.getElementById(`output${i + 1}`);
+    output.innerHTML = '';
     for (const content of contents.ops) {
       const item = document.createElement('li');
       item.textContent = `${JSON.stringify(content)},`;
-      output[i].appendChild(item);
+      output.appendChild(item);
     }
   });
-}
-
-for (const [i, btn] of [writable1].entries()) {
-  btn.addEventListener('click', () => {
-    quill[i].enable(!quill[i].isEnabled());
+  const writableBtn = document.getElementById(`writable${i + 1}`);
+  writableBtn.addEventListener('click', () => {
+    quill.enable(!quill.isEnabled());
   });
 }

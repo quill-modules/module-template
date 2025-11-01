@@ -7,9 +7,9 @@ export function startServer() {
   const hostname = '0.0.0.0';
   const PORT = 5500;
   const server = createServer((req, res) => {
-    const filePath = join(ROOT_PATH, req.url === '/' ? 'index.html' : req.url || '');
+    const filePath = join(ROOT_PATH, req.url === '/' ? 'index.html' : req.url!);
     const fileExtname = String(extname(filePath)).toLowerCase();
-    const mimeTypes = {
+    const mimeTypes: Record<string, string> = {
       '.html': 'text/html',
       '.js': 'text/javascript',
       '.css': 'text/css',
@@ -36,4 +36,6 @@ export function startServer() {
   server.listen(PORT, hostname, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
+
+  return server;
 }

@@ -23,6 +23,7 @@
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css" rel="stylesheet" />
     <script type="module" src="./index.umd.js"></script>
     <link href="./style/index.css" rel="stylesheet" />
+    <link href="./style/module.css" rel="stylesheet" />
     <style>
       #btn1,
       #writable1 {
@@ -43,6 +44,15 @@
         <div id="output1"></div>
       </div>
     </div>
+    <script>
+      const ws = new WebSocket('ws://localhost:8080');
+      ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.type === 'reload') {
+          window.location.reload();
+        }
+      };
+    </script>
     <script type="module" src="./index.js"></script>
   </body>
 </html>
