@@ -55,7 +55,7 @@ const baseOptions = {
   outDir: DIST_PATH,
   dts: true,
   plugins: [],
-  ignoreWatch: ['./src/style'],
+  ignoreWatch: ['./src/style', './src/__tests__'],
   external: ['quill'],
   noExternal: [],
   loader: {
