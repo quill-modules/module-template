@@ -6,6 +6,10 @@
   "description": "",
   "author": "zzxming",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quill-modules/module-template"
+  },
   "keywords": [
     "quill",
     "module"
