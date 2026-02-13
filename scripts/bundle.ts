@@ -37,8 +37,8 @@ export function buildStyle({
           );
         }),
       )
-      .pipe(dest(DIST_PATH))
-      .pipe(dest(DOCS_PATH))
+      .pipe(dest(resolve(DIST_PATH, 'style')))
+      .pipe(dest(resolve(DOCS_PATH, 'style')))
       .on('finish', () => {
         onSuccess();
       });

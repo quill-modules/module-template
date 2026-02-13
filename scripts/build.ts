@@ -34,7 +34,7 @@ async function main() {
       onSuccess: reloadClients,
     }),
   ]);
-  run(`unocss \"src/**/*\"${isDev ? ' -w' : ''}`);
+  run(`unocss ${isDev ? '-w' : ''}`);
 }
 
 main().catch((error) => {
